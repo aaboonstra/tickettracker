@@ -73,7 +73,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     # custom authentication app which adds a userprofile when a user is created
-    'management.apps.authentication',
+    'tools.authentication',
 
     # Ticket application
     'management.apps.ticket',
