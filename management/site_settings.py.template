@@ -1,0 +1,19 @@
+# vim: set syn=python ts=8 sw=4 sts=4 et ai:
+import os, pwd
+_OSUSER = pwd.getpwuid(os.getuid())[0]
+
+# Debugging
+DEBUG = TEMPLATE_DEBUG = True
+
+# DB settings
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tickettracker_%s' % _OSUSER,
+        'USER': _OSUSER,
+        'PASSWORD': '%s2' % _OSUSER,
+    }
+}
+
+# Email settings
+ADMINS = MANAGERS = (('example', '%s@example.com' % _OSUSER),)

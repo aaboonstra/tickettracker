@@ -1,4 +1,5 @@
 *.pyc
 *.swp
-site_settings*
+site_settings.py
+site_settings.pyc
 tools*
