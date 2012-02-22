@@ -1,0 +1,34 @@
+{# vim: set ts=8 sw=2 sts=2 et ai syn=htmldjango: #}<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>{% if title %}{{ title }}{% else %}Pandalex{% endif %}</title>
+    <link rel="stylesheet" href="{{ STATIC_URL}}css/layout.css" type="text/css" media="screen" /> 
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/ie.css" type="text/css" media="screen" />
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+{% block extra_head %}{% endblock extra_head %} 
+</head>
+<header id="header">
+{% block header %}{% endblock header %}
+</header>
+
+{% block header_bottom %}
+{% endblock header_bottom %}
+
+{% block sidebar_left %}
+
+{% endblock sidebar_left %}
+
+<section id="main" class="column">
+{% block content %}{% endblock content %}
+
+</section>
+
+{% block footer %}{% endblock footer %}
+
+{% block js %}{% endblock js %}
+<hr />
+</body>
+</html>

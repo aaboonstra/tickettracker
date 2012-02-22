@@ -1,0 +1,54 @@
+[
+  {
+    "pk": 1, 
+    "model": "auth.group", 
+    "fields": {
+      "name": "Managers", 
+      "permissions": []
+    }
+  },
+  {
+    "pk": 2, 
+    "model": "auth.group", 
+    "fields": {
+      "name": "Clients",   
+      "permissions": []
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "admin", 
+      "first_name": "", 
+      "last_name": "", 
+      "is_active": true, 
+      "is_superuser": true, 
+      "is_staff": true, 
+      "last_login": "2011-11-19 03:41:09", 
+      "groups": [1], 
+      "user_permissions": [], 
+      "password": "sha1$af09d$5d5084a72a4ab52e8ab4f61c2108f806991c7eb5", 
+      "email": "admin@example.com", 
+      "date_joined": "2011-09-17 08:03:49"
+    }
+  },
+  {
+    "pk": 2, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "client", 
+      "first_name": "", 
+      "last_name": "", 
+      "is_active": true, 
+      "is_superuser": false, 
+      "is_staff": false, 
+      "last_login": "2011-11-26 10:59:58", 
+      "groups": [2], 
+      "user_permissions": [], 
+      "password": "sha1$399d3$acabeb833933cc2736122328b719de55e4ce69ed", 
+      "email": "admin@example.com", 
+      "date_joined": "2011-11-26 10:59:58"
+    }
+  }
+]

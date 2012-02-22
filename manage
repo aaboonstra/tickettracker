@@ -1,0 +1,46 @@
+#!/bin/sh
+dir="`dirname "$0"`"
+arg1="$1"
+arg2="$2"
+arg3="$3"
+[ $# -gt 0 ] && shift
+[ -z "$arg1" ] && arg1=help
+django_admin=django-admin.py
+if [ "$arg1" = "--help" ]; then
+    echo "Usage:"
+    echo "Use normall django-admin commands to use management project (e.g syncdb,  runserver), see './manage help' for more info"
+    echo "Use 'client' as last argument to use the django-admin commands on the client project \n" 
+    exit 1
+fi
+
+if [ "$arg2" = client ]; then
+    opts="--pythonpath=$dir --settings=client.settings"
+else
+    opts="--pythonpath=$dir --settings=management.settings"
+fi
+
+if [ "$arg1" = syncdb ]; then
+    if [ "$arg2" = client ]; then
+        [ ! -f "$dir/client/site_settings.py" ] && cp "$dir/client/site_settings.py.template" "$dir/client/site_settings.py"
+    else
+        [ ! -f "$dir/management/site_settings.py" ] && cp "$dir/management/site_settings.py.template" "$dir/management/site_settings.py"
+    fi
+fi
+
+if [ "$arg1" = gitexternals ]; then
+    if [ -d "tools" ]; then
+        cd tools && git pull https://github.com/aaboonstra/tools && cd ..
+    else
+        mkdir tools && git clone https://github.com/aaboonstra/tools && cd ..
+    fi
+else
+    if [ "$arg3" != '' ]; then
+        "$django_admin" $arg1 $opts $arg3
+    elif [ "$arg2" = client ]; then
+        "$django_admin" $arg1 $opts
+    else
+        "$django_admin" $arg1 $opts $arg2
+    fi
+fi
+
+

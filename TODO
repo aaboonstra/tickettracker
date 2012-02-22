@@ -1,0 +1,2 @@
+- Set view permissions for apps created after the user was created
+    (atm view permissions are set on user create, there should be a check if user has view permissions on all registred apps)
