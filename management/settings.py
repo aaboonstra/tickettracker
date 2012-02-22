@@ -72,8 +72,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
-    # custom authentication app
+    # custom authentication app which adds a userprofile when a user is created
     'management.apps.authentication',
+
+    # Ticket application
+    'management.apps.ticket',
 )
 
 # A sample logging configuration. The only tangible logging

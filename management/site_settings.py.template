@@ -1,5 +1,7 @@
 # vim: set syn=python ts=8 sw=4 sts=4 et ai:
 import os, pwd
+from django.utils.translation import ugettext_lazy as _
+
 _OSUSER = pwd.getpwuid(os.getuid())[0]
 
 # Debugging
@@ -17,3 +19,9 @@ DATABASES = {
 
 # Email settings
 ADMINS = MANAGERS = (('example', '%s@example.com' % _OSUSER),)
+
+# Priorities used to attach to tickets, change accordingly to your own business plan
+LOW_PRIORITY = _('Low (Within 5 business-days)')
+MEDIUM_PRIORITY = _('Medium (Next business-day)')
+HIGH_PRIORITY = _('High (4 hour response-time during office hours)')
+CRITICAL_PRIORITY = _('Critical (1 hour response-time 24/7)')
