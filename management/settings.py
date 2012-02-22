@@ -47,7 +47,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
-AUTH_PROFILE_MODULE = 'management.apps.authentication.UserProfile'
+AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -73,7 +73,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     # custom authentication app which adds a userprofile when a user is created
-    'tools.authentication',
+    'management.apps.userprofile',
 
     # Ticket application
     'management.apps.ticket',
