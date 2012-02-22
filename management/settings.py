@@ -102,4 +102,9 @@ LOGGING = {
     }
 }
 
+TEST_RUNNER = 'management.CoverageRunner'
+COVERAGE_MODULES = (
+    'management.apps.ticket.models',
+)
+
 from site_settings import *

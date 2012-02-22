@@ -57,6 +57,7 @@ class Ticket(Model):
     
     uuid = models.CharField(primary_key=True, editable=False, unique=True, max_length=32, default=lambda: uuid.uuid1().hex)
     title = models.CharField(max_length=255)
+    queue = models.ForeignKey(Queue)
     description = models.TextField()
     date_due = models.DateField() #set default!?
     assigned_to = models.ForeignKey(User)
@@ -76,25 +77,25 @@ class Ticket(Model):
         '''
         Given a queue, returns all open tickets attached to the queue
         '''
-        return cls.objects.filter(queue=queue, status=OPEN_STATUS).order_by('date_due')
+        return cls.objects.filter(queue=queue, status=Ticket.OPEN_STATUS).order_by('date_due')
 
     @classmethod
     def get_resolved_tickets(cls, queue):
         '''
         Given a queue, returns all resolved tickets attached to the queue
         '''
-        return cls.objects.filter(queue=queue, status=RESOLVED_STATUS).order_by('date_due')
+        return cls.objects.filter(queue=queue, status=Ticket.RESOLVED_STATUS).order_by('date_due')
 
     @classmethod
     def get_closed_tickets(cls, queue):
         '''
         Given a queue, returns all closed tickets attached to the queue
         '''
-        return cls.objects.filter(queue=queue, status=CLOSED_STATUS).order_by('date_due')
+        return cls.objects.filter(queue=queue, status=Ticket.CLOSED_STATUS).order_by('date_due')
 
 
 
-Queue.get_all_tickets = lambda queue: Queue.get_all_tickets(queue)
-Queue.get_open_tickets = lambda queue: Queue.get_open_tickets(queue)
-Queue.get_resolved_tickets = lambda queue: Queue.get_resolved_tickets(queue)
-Queue.get_closed_tickets = lambda queue: Queue.get_closed_tickets(queue)
+Queue.get_all_tickets = lambda queue: Ticket.get_all_tickets(queue)
+Queue.get_open_tickets = lambda queue: Ticket.get_open_tickets(queue)
+Queue.get_resolved_tickets = lambda queue: Ticket.get_resolved_tickets(queue)
+Queue.get_closed_tickets = lambda queue: Ticket.get_closed_tickets(queue)
