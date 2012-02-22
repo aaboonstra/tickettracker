@@ -3,3 +3,4 @@
 site_settings.py
 site_settings.pyc
 tools*
+*.db
