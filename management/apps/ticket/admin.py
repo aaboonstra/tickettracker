@@ -3,7 +3,7 @@ from django.contrib import admin
 from management.apps.ticket.models import Ticket 
 
 
-class MembershipAdmin(admin.ModelAdmin):
-    list_display = ('',)
+class TicketAdmin(admin.ModelAdmin):
+    list_display = ('title', 'status', 'priority',)
 
 admin.site.register(Ticket, TicketAdmin)
