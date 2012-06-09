@@ -1,2 +1,14 @@
 django==1.4
 coverage
+MySQL-python
+south
+
+#ipython debugger
+ipdb
+
+# Used by tools.login.forms atm
+django-form-utils
+
+# twitter bootstrap admin interface
+django-admin-tools
+-e hg+https://bitbucket.org/salvator/django-admintools-bootstrap#egg=admintools_bootstrap

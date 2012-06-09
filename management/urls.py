@@ -8,7 +8,7 @@ from tools.login import LoginView
 urlpatterns = patterns('',
 #    (r'^$', redirect_to, {'url': '/o/'}),
     url(r'^admin/', include(admin.site.urls)),
-
+    url(r'^admin_tools/', include('admin_tools.urls')),
 #    ('^o/', include('management.apps.overview.urls', namespace='overview')),
 
     url('^login/$', LoginView.as_view(), name='login'),
